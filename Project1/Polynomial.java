@@ -4,7 +4,9 @@ public class Polynomial{
 
     //constructors
     public Polynomial(double[] c){
-        deg = c.length-1;
+        if((c.length -1) < 0)
+            throw new IllegalArgumentException("Array is empty, please enter an array with values");
+        else deg = c.length-1;
         coeff = c;
     }
 
@@ -42,6 +44,7 @@ public class Polynomial{
                 if(i > (this.deg)) temp[i] = other.coeff[i];
                 else temp[i] = this.coeff[i] + other.coeff[i];
             }
+            //replaces p with values of temp
             this.coeff = temp;
             this.deg = other.deg;
         }
@@ -63,8 +66,27 @@ public class Polynomial{
         }
     }
 
+    public void multiply(Polynomial q){
 
+    }
 
+    // Polynomial methods
+
+    public static Polynomial sum(Polynomial p, Polynomial q){
+        double[] temp = new double[p.deg+1];
+        Polynomial result = new Polynomial(temp);
+        result.add(p);
+        result.add(q);
+        return result;
+    }
+
+    public static Polynomial diff(Polynomial p, Polynomial q){
+        double[] temp = new double[p.deg+1];
+        Polynomial result = new Polynomial(temp);
+        result.add(p);
+        result.subtract(q);
+        return result;
+    }
 
     public double[] getCoeff() {
         return coeff;
@@ -90,9 +112,4 @@ public class Polynomial{
         return result;
     }
 }
-/*
-public Polynomial sum(Polynomial p, Polynomial q){
-    if
-    return result
-}
-*/
+

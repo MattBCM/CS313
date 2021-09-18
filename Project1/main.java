@@ -10,5 +10,6 @@ public class main {
         p.subtract(q);
         p.scale(2.0);
         System.out.println(p);
+        System.out.println(Polynomial.diff(p, q));
     }
 }
