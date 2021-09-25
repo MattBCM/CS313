@@ -1,4 +1,5 @@
 public class Polynomial{
+    //member variable
     private double[] coeff;
     private int deg;
 
@@ -51,23 +52,27 @@ public class Polynomial{
     }
     //subtract function, p = p-q
     public void subtract(Polynomial other){
-        double[] temp = new double[other.deg+1];
-        for(int i = 0; i <= other.deg; i++){
-            temp[i] = (0 - other.coeff[i]);
-        }
-        Polynomial revOther = new Polynomial(temp);
-        this.add(revOther);
+        other.scale(-1);
+        this.add(other);
+        other.scale(-1);
     }
 
     //scale function, p = c*p
     public void scale(double x){
-        for(int i = 0; i <= this.deg; i++){
+        for(int i = 0; i <= this.deg; i++)
             this.coeff[i] *= x;
-        }
     }
 
-    public void multiply(Polynomial q){
+    public void multiply(Polynomial other){
+        double[] temp = new double[this.deg + other.deg + 1];
 
+        for(int i = 0; i < this.coeff.length; i++){
+            for(int j = 0; j < other.coeff.length; j++){
+                temp[j+i] += this.coeff[i] * other.coeff[j];
+            }
+        }
+        this.coeff = temp;
+        this.deg = temp.length-1;
     }
 
     // Polynomial methods
@@ -85,6 +90,14 @@ public class Polynomial{
         Polynomial result = new Polynomial(temp);
         result.add(p);
         result.subtract(q);
+        return result;
+    }
+
+    public static Polynomial product(Polynomial p, Polynomial q){
+        double[] temp = new double[p.deg+1];
+        Polynomial result = new Polynomial(temp);
+        result.add(p);
+        result.multiply(q);
         return result;
     }
 
@@ -106,9 +119,8 @@ public class Polynomial{
 
     private double power(double x, int p){
         double result = 1;
-        for(int i = 0; i < p; i++){
+        for(int i = 0; i < p; i++)
             result *= x;
-        }
         return result;
     }
 }
