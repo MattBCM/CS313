@@ -3,11 +3,14 @@ Warm-Up Project A: Polynomial class using arrays
 Name: Matthew Murillo
 */
 public class Polynomial{
+
     //***Member variable***
+
     private double[] coeff;
     private int deg;
 
     //***constructors***
+
     public Polynomial(double[] c){
         //throws message and closes program if array is empty, else create the Polynomial class.
         if((c.length -1) < 0)
