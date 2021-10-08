@@ -1,14 +1,11 @@
 public class polyMain {
     public static void main(String[] args) {
         PolynomialB list = new PolynomialB();
-        Term first = new Term(3.2, 3);
-        Term second = new Term(4.5, 6);
-        Term third = new Term(2, 2);
-        Term fourth = new Term(5.7, 3);
-        list.insert(first);
-        list.insert(second);
-        list.insert(third);
-        list.insert(fourth);
-        System.out.println(list);
+        PolynomialB list2 = new PolynomialB();
+        list.insert(3.2, 3);
+        list.insert(4.5, 6);
+        list2.insert(5.2, 4);
+        list2.insert(82, 7);
+        System.out.println(PolynomialB.diff(list, list2));
     }
 }
