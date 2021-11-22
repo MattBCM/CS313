@@ -117,6 +117,7 @@ public class PolynomialB {
 
     //***Polynomial Methods***
 
+    // sum method, r = p + q
     public static PolynomialB sum(PolynomialB p, PolynomialB q){
         PolynomialB result = new PolynomialB();
         node PCurr = p.head.next;
@@ -129,6 +130,7 @@ public class PolynomialB {
         return result;
     }
 
+    //difference method, r = p - q
     public static PolynomialB diff(PolynomialB p, PolynomialB q){
         PolynomialB result = new PolynomialB();
         node PCurr = p.head.next;
@@ -141,6 +143,7 @@ public class PolynomialB {
         return result;
     }
 
+    // multiply method, r = p * q
     public static PolynomialB product(PolynomialB p, PolynomialB q){
         PolynomialB result = new PolynomialB();
         node PCurr = p.head.next;

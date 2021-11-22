@@ -6,6 +6,7 @@ public class Term {
     //***Constructor***
     public Term(double c, int p){
         coeff = c;
+        if(p < 0) throw new IllegalArgumentException("term's power is less than 0, which is wrong");
         power = p;
     }
 }

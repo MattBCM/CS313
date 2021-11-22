@@ -4,7 +4,7 @@ public class Student {
     private String firstName;
     private String lastName;
     private int age;
-    private double GPA;
+    private double GPA = 0.0;
 
     public boolean equals(Student other){
         if(this.lastName.equals(other.lastName))
@@ -32,6 +32,7 @@ public class Student {
         firstName = F;
         lastName = L;
         age = A;
+        if(G > 4.0 || G < 0.0) throw new IllegalArgumentException("GPA is too high or too low");
         GPA = G;
     }
 
