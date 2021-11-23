@@ -9,20 +9,22 @@ public class Project2Main {
 
     public static void main(String[] args) throws FileNotFoundException{
         Load(CustomerBST);
+        Start();
     }
 
     public static void Start() throws FileNotFoundException{
-        Scanner input = new Scanner(System.in);
-        int numCase = input.nextInt();
+
         System.out.println("Welcome to NYC Bank, please enter the number that corresponds to what you want to do");
         mainMenuPrompt();
+        Scanner input = new Scanner(System.in);
+        int numCase = input.nextInt();
         switch (numCase){
             case 1: Deposit();
-            case 2: Withdraw();
-            case 3: checkBalance();
-            case 4: newAccount();
-            case 5: closeAccount();
-            case 6: Close(CustomerBST);
+           // case 2: Withdraw();
+           // case 3: checkBalance();
+            //case 4: newAccount();
+           // case 5: closeAccount();
+           // case 6: Close(CustomerBST);
         }
     }
 
@@ -33,7 +35,7 @@ public class Project2Main {
                 "[3] Check your Balance\n" +
                 "[4] Make a new account\n" +
                 "[5] Close a bank account\n" +
-                "[6] Exit the program");
+                "[6] Exit the program\n\n");
     }
 
 
@@ -62,4 +64,26 @@ public class Project2Main {
         System.exit(0);
     }
 
-}
+    public static void Deposit() {
+        while (true) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter your first name: ");
+            String first = input.nextLine();
+            System.out.println("Please enter your last name: ");
+            String last = input.nextLine();
+            System.out.println("Please enter your 4-digit account number: ");
+            String acnt = input.nextLine();
+            try{
+                Customer result = CustomerBST.search(new Customer(first, last, acnt));
+                System.out.println("Please enter a number to deposit, " + result.getFirst() + ". You have " + result.getBalance() + ". ");
+                double requestMoney = input.nextDouble();
+                result.Deposit(requestMoney);
+                System.out.println("Your account now have: $" + result.getBalance() + ". ");
+                break;
+            }
+            catch(NullPointerException exception){
+                System.out.println("no account was found, please try again\n\n");
+            }
+            }
+        }
+    }
