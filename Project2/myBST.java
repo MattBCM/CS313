@@ -42,8 +42,7 @@ public class myBST <T extends Comparable<T>>{
     //recursive function going through every node on left till it's null
     private T findMinRec(BSTnode<T> node){
         if(node.left == null) return node.data;
-        else findMinRec(node.left);
-        return null;
+        else return findMinRec(node.left);
     }
 
     //find maximum data function using recursive function
@@ -55,8 +54,7 @@ public class myBST <T extends Comparable<T>>{
     //recursive function by going through the right node till it's null
     public T findMaxRec(BSTnode<T> node){
         if(node.right == null) return node.data;
-        else findMaxRec(node.right);
-        return null;
+        else return findMaxRec(node.right);
     }
 
     //search function to search for a data if it's in the BST

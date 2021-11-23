@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 //Project 1 Part B
 public class Customer implements Comparable<Customer>{
     //*** Member Variable ***
@@ -28,8 +30,17 @@ public class Customer implements Comparable<Customer>{
     }
 
     //equals function, if account numbers equal to each other
-    public boolean equals(Customer other){
-        return this.acntNmbr.equals(other.acntNmbr);
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        else if (o == null || getClass() != o.getClass()) return false;
+        else{
+            Customer other = (Customer) o;
+            return this.acntNmbr.equals(other.acntNmbr);
+        }
+
     }
 
     @Override
