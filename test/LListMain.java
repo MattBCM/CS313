@@ -4,15 +4,15 @@ public class LListMain {
         //Linked List
         StudentList SList = new StudentList();
         SList.append(new Student("Matthew", "Murillo", 20, 3.8));
-        SList.append(new Student("Fargis", "NWord", 15, 3.9));
-        SList.append(new Student("Loser", "Culo", 34, 2.5));
+        SList.append(new Student("Something", "Thing", 15, 3.9));
+        SList.append(new Student("People", "LastName", 34, 2.5));
         SList.sortByGPA();
 
         //Student Queue
         StudentQueueArray QArr = new StudentQueueArray(4);
         QArr.enQue(new Student("Matthew", "Murillo", 20, 3.8));
-        QArr.enQue(new Student("Fargis", "NWord", 15, 3.9));
-        QArr.enQue(new Student("Loser", "Culo", 34, 2.5));
+        QArr.enQue(new Student("Something", "Thing", 15, 3.9));
+        QArr.enQue(new Student("People", "LastName", 34, 2.5));
 
         System.out.println(QArr);
         QArr.deQue();

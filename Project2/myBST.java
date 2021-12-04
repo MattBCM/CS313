@@ -67,10 +67,9 @@ public class myBST <T extends Comparable<T>>{
     private T searchRec(BSTnode<T> node, T data){
         if(node.data.compareTo(data) == 0 && node.data.equals(data)) return node.data;
         else{
-            if(node.data.compareTo(data) >= 0) searchRec(node.left, data);
-            else searchRec(node.right, data);
+            if(node.data.compareTo(data) >= 0) return searchRec(node.left, data);
+            else return searchRec(node.right, data);
         }
-        return null; // return null if not found
     }
 
     //delete function to remove a node from the BST using a recursive function
